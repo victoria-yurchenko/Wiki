@@ -1,0 +1,27 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#sidebar-showcase {
+    background-color: #F5F5F5;
+    box-shadow: 0px 0px 40px 5px #C0C0C0;
+}
+
+#sidebar-nav {
+    width: 300px;
+}

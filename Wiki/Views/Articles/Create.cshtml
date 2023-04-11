@@ -1,0 +1,76 @@
+﻿@model Wiki.Models.Article
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Article</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12 mainData">
+        <form class="form-control-lg">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group description">
+                <p id="test"></p>
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" name="Title" id="title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group description">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" name="ShortDescription" id="shortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <div class="form-group">
+                <input asp-action="AddArticle" type="submit" value="Add Article" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+
+        <div class="container">
+            <form asp-action="AddParagraph">
+
+                <label class="control-label">Add Paragraph</label>
+                <textarea type="text" name="Text" class="form-control"></textarea>
+
+                <input type="submit" value="Add Article" class="btn btn-success" />
+
+            </form>
+
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="container bg-light" style="border-radius:5px">
+        @foreach (string p in ViewBag.Par)
+        {
+            <br/>
+            <p>@p</p>
+        }
+    </div>
+</div>
+
+
+<script>
+    // todo: 
+    // saving inputs values after reloading the page in helpers
+</script>

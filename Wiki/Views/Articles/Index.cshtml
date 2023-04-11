@@ -1,0 +1,80 @@
+﻿@model List<Wiki.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><b></b></h1>
+
+<div class="container">
+
+    <form>
+        <div class="input-group">
+            <input type="search" name="Search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+            <button type="submit" class="btn btn-outline-danger" asp-action="SearchByTitle">search</button>
+        </div>
+    </form>
+@*
+    <div class="input-group">
+        <button type="submit" class="btn btn-outline-info" asp-action="ClearSearchBar">clear</button>
+    </div>*@
+
+    <p>
+        <a class="text-black" asp-action="Create">Add New</a>
+    </p>
+
+</div>
+
+<div class="container">
+
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        <div class="card border-primary m-3" style="display:flex">
+            <div class="card-header"># @Model[i].Id</div>
+            <div class="card-body">
+                <h4 class="card-title">@Model[i].Title</h4>
+                <p class="card-text">@Model[i].ShortDescription</p>
+                <hr />
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@Model[i].Id">Read</a>
+                <a class="text-dark" asp-action="Edit" asp-route-id="@Model[i].Id">Edit</a>
+                <a class="text-dark" asp-action="Delete" asp-route-id="@Model[i].Id">Delete</a>
+
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

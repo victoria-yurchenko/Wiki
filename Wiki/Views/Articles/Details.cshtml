@@ -1,0 +1,25 @@
+﻿@model Wiki.Models.Helpers.ArticleViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Article.Title</h1>
+
+<div>
+    <h4>@Model.Article.ShortDescription</h4>
+    <hr />
+    <div class="row">
+
+        @foreach(var p in Model.Paragraphs)
+        {
+            <p style="text-indent:40px">@p.Text</p>
+        }
+
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Article.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

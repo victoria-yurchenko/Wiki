@@ -1,0 +1,48 @@
+﻿@model Wiki.Models.Article
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4># @Model.Id</h4>
+<hr />
+<div class="row">
+    <div >
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Title</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Description</label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+
+            <hr style="border:1px solid black"/>
+
+            @foreach(var paragraph in (List<Paragraph>)ViewBag.Paragraphs)
+            {
+                <div class="form-group">
+                    <textarea type="text" name="Text" class="form-control" style="margin-top:10px;margin-bottom:10px">@paragraph.Text</textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

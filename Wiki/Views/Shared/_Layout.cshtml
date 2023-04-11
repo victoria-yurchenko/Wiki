@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Wiki</title>
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/bootstrap.min.css" />*@
+    @*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cdbootstrap/css/cdb.min.css" />*@
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Wiki.styles.css" asp-append-version="true" />
+</head>
+<body style="background-color:#FFFEF9">
+
+
+    <div class="container-fluid" style="border-radius:10px">
+        <div class="row flex-nowrap">
+            <div class="col-auto px-0">
+                <div id="sidebar" class="collapse collapse-horizontal show border-end bg-primary">
+                    <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span> </a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                        <a href="#" class="btn btn-outline-info border-0 text-white" data-bs-parent="#sidebar"><span>Item</span></a>
+                    </div>
+                </div>
+            </div>
+            <main class="col ps-md-2 pt-2">
+                <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none btn btn-danger text-white"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+
+                @*Content*@
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-md-4 col-lg-2 col-4">
+                        </div>
+                        <div class="col-xs-11 col-sm-11 col-md-8 col-lg-10 col-8">
+
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    
+
+
+
+
+    
+
+    @*<script src="../build/cdbbootstrap.js"></script>*@
+
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    @*<script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/bootstrap.min.js"></script>*@
+    @*<script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/popper.min.js"></script>*@
+    @*<script src="https://cdn.jsdelivr.net/npm/cdbootstrap/js/cdb.min.js"></script>*@
+    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        //const sidebarNav = document.querySelector('#sidebar-nav');
+        //new CDB.Sidebar(sidebarNav);
+    </script>
+    <script>
+        const sidebarShow = document.querySelector('#sidebar-showcase');
+        new CDB.Sidebar(sidebarShow);
+    </script>
+
+</body>
+</html>
